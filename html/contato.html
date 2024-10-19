@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contato</title>
+    <link rel="stylesheet" href="/styles/style_principal.css">
+    <link rel="stylesheet" href="/styles/style_resposive.css">
+    <link rel="stylesheet" href="/styles/style_contato.css">
+    <script defer src="/scripts.js"></script>
+</head>
+
+<body>
+
+    <header>
+        <section id="logo" class="">
+            <a href="/index.html">
+                <img src="/imagems/logo.png" alt="Logo principal">
+            </a>
+        </section>
+        <section id="botao_menu">
+            <img class="botao_menu_apertar" src="/imagems/cardápio.png" alt="Botão menu">
+        </section>
+        <section id="menu_maior">
+            <a href="/html/sobre.html">Sobre nós</a>
+            <a href="/html/unidade.html">Nossa unidade</a>
+            <a href="/html/contato.html">Contato</a>
+        </section>
+    </header>
+
+    <div id="menu_aberto">
+        <section id="botao_menu_aberto">
+            <img class="botao_menu_aberto_apertar" src="/imagems/x.png" alt="Botão menu">
+        </section>
+        <section id="menu" class="">
+            <a href="sobre.html">Sobre nós</a>
+            <a href="unidade.html">Nossa unidade</a>
+            <a href="contato.html">Contato</a>
+        </section>
+    </div>
+
+    <main>
+        <form id="formulario" onsubmit="handleSubmit(event)">
+            <label for="nome">Nome:</label><br>
+            <input type="text" id="nome" name="nome" placeholder="Nome" required><br><br>
+    
+            <label for="contato">Contato:</label><br>
+            <input type="text" id="contato" name="contato" placeholder="Contato" required><br><br>
+    
+            <label for="descricao">Descrição:</label><br>
+            <textarea id="descricao" name="descricao" rows="4" cols="50" placeholder="Fale sobre o seu problema"></textarea><br><br>
+    
+            <input type="submit" value="Enviar">
+        </form>
+        <div id="mensagem" style="display: none;"></div>
+    </main>
+    
+    <script>
+        function handleSubmit(event) {
+            event.preventDefault(); // Impede o envio padrão do formulário
+    
+            const formData = new FormData(document.getElementById('formulario'));
+    
+            fetch('https://script.google.com/macros/s/AKfycbyveXr7msWingaWLxYzVr4fF178nZzrgjjaPXlgPKqbw3vYrQE2GFEG0VsWeH4LdyE/exec', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => {
+                if (response.ok) {
+                    // Mensagem de sucesso
+                    document.getElementById('mensagem').innerText = 'Sua resposta foi enviada!';
+                    document.getElementById('mensagem').style.display = 'block';
+                    
+                    // Limpar campos
+                    document.getElementById('formulario').reset();
+                } else {
+                    // Mensagem de erro
+                    document.getElementById('mensagem').innerText = 'Erro ao enviar o formulário.';
+                    document.getElementById('mensagem').style.display = 'block';
+                }
+            })
+            .catch(error => {
+                document.getElementById('mensagem').innerText = 'Erro ao enviar o formulário.';
+                document.getElementById('mensagem').style.display = 'block';
+            });
+        }
+    </script>
+    
+
+</body>
+
+</html>

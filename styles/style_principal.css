@@ -1,0 +1,255 @@
+:root {
+    --amarelo1: #e8b827;
+    --amarelo2: #e0a905;
+    --vermelho: red;
+    --cinza: rgb(130, 130, 130);
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/*CABECALHO*/
+
+header {
+    display: flex;
+    background-color: var(--amarelo2);
+    justify-content: space-between;
+    padding: 1em 1.5em;
+    align-items: center;
+}
+
+#botao_menu {
+    display: flex;
+    align-items: center;
+}
+
+#botao_menu img {
+    height: 50px;
+}
+
+#menu_aberto {
+    display: none;
+}
+
+#menu_maior {
+    display: none;
+}
+
+#menu_maior a {
+    display: inline-block;
+    text-decoration: none;
+    color: white;
+    padding-left: 1.5em;
+    font-size: 1.5em;
+    transition: all 0.3s ease;
+}
+
+#menu_maior a:hover {
+    color: rgb(0, 0, 0);
+    transform: scale(1.2);
+}
+
+#menu_maior a:active {
+    transform: scale(0.9);
+}
+
+/* menu ativo */
+
+#logo img {
+    height: 50px;
+    display: flex;
+    align-items: center;
+}
+
+#menu_aberto {
+    display: none;
+    flex-direction: column;
+    height: 100vh;
+    opacity: 0;
+    transition: transform 0.5s ease, opacity 0.5s ease;
+    z-index: 1000;
+}
+
+#menu {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    margin-top: 10em;
+}
+
+#menu a {
+    margin-top: 2em;
+    text-decoration: none;
+    color: #2b2a29;
+    font-size: 2em;
+    font-weight: 500;
+    opacity: 0;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+#menu a:hover {
+    color: rgb(194, 160, 7);
+}
+
+#botao_menu_aberto {
+    position: absolute;
+    right: 0;
+    margin: 1.55em 1.98em;
+}
+
+#botao_menu_aberto img {
+    height: 35px;
+}
+
+/* Estilo do botão de menu */
+#botao_menu {
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+#botao_menu:hover {
+    transform: scale(1.1);
+}
+
+#botao_menu:active {
+    transform: scale(0.9);
+}
+
+/* Estilo do botão de menu ABERTO */
+#botao_menu_aberto {
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+#botao_menu_aberto:hover {
+    transform: scale(1.1);
+}
+
+#botao_menu_aberto:active {
+    transform: scale(0.9);
+}
+
+#menu_aberto.menu-aberto {
+    display: flex;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+#botao_menu_aberto {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+#menu_aberto.menu-aberto a {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+#botao_menu_apertar {
+    width: 100px;
+}
+
+/*PRINCIPAL*/
+
+#principal {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    padding: 5em 1.5em;
+    background-image: url('/imagems/VOCESORRINDO2\ .png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-color: var(--amarelo2);
+    position: relative;
+    z-index: 1;
+}
+
+#principal::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #000000b4;
+    z-index: 2;
+}
+
+#principal_conteudo {
+    position: relative;
+    z-index: 3;
+    color: white;
+}
+
+#principal_conteudo h1 {
+    font-size: 2.5em;
+    margin: 0;
+}
+
+#principal_conteudo h2 {
+    margin: .2em 0 .8em 0;
+    font-weight: 500;
+}
+
+#principal_conteudo p {
+    margin: .5em 0;
+}
+
+strong {
+    color: var(--amarelo2);
+}
+
+#botao_agende {
+    display: inline-block;
+    background-color: var(--vermelho);
+    padding: 1em .8em;
+    margin: 1em 0 0 0;
+    color: white;
+    text-decoration: none;
+    position: relative;
+    z-index: 3;
+}
+
+#botao_agende:hover {
+    background-color: rgb(255, 68, 0);
+    color: rgb(0, 0, 0);
+    transition: all 0.2s ease;
+}
+
+
+/*DETALHES*/
+
+#detalhes {
+    padding: 1.5em;
+    background-color: white;
+}
+
+/*SERVICOS*/
+
+#servicos {
+    background-color: var(--amarelo1);
+    padding: 1.5em;
+}
+
+/*SOBRE*/
+
+#sobre {
+    padding: 1.5em;
+}
+
+/*UNIDADE*/
+
+#unidade {
+    padding: 1.5em;
+}
+
+/*RODAPE*/
+
+footer {
+    background-color: var(--cinza);
+    padding: 1.5em;
+}
